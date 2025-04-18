@@ -6,4 +6,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include_directories(include)
 
-add_executable(ATM src/main.cpp)
+add_executable(ATM
+src/atm_controller.cpp 
+src/database.cpp 
+src/userdata.cpp 
+src/main.cpp)

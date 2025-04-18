@@ -16,8 +16,8 @@ public:
     UserData(){}
     ~UserData(){}
     
-    //show accounts
-    std::vector<std::string> ShowAccounts();
+    //Get accounts
+    std::vector<std::string> GetAccountNames();
 
     //returns balance
     //return -1 if idx doesn't exist
@@ -34,6 +34,9 @@ public:
     //return -2 if balance is less than requested withdrawal amount
     //return remaining balance if successful
     int Withdraw(int idx, int dollar_amount);
+
+    //check if pin is correct
+    bool Checkpin(int pin_to_check);
 
 private:
     std::string card_number;

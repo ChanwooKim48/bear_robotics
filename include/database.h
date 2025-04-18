@@ -18,9 +18,12 @@ public:
     //add user data
     bool AddData(std::string card_number, int pin_number, std::string account_name, int balance);
 
+    //return pointer to user data
+    UserData* GetData(std::string card_number);
+
 private:
     //card number (int) to UserAccount
-    std::unordered_map<std::string, UserData> db;
+    std::unordered_map<std::string, UserData> map;
 
 
 };
