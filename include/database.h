@@ -20,7 +20,7 @@ public:
 
     //return pointer to user data
     UserData* GetData(std::string card_number);
-
+    
 private:
     //card number (int) to UserAccount
     std::unordered_map<std::string, UserData> map;

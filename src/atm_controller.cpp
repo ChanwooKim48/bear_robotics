@@ -48,9 +48,18 @@ bool ATMController::ProcessRun(std::string card_number, int pin_number, int acco
         //withdraw
         if(amount > 0){
             int balance_after = userdata->Withdraw(account_idx, amount);
-            std::cout<<"successfully withdraw " << amount << " dollars! " << std::endl;
-            std::cout<<"balance after withdraw is " << balance_after << " dollars! " << std::endl;
-            return true;
+            if(balance_after > 0){
+                std::cout<<"successfully withdraw " << amount << " dollars! " << std::endl;
+                std::cout<<"balance after withdraw is " << balance_after << " dollars! " << std::endl;
+                return true;
+            }
+            else{
+                std::cout<<"cannot withdraw " << amount << " dollars! " << std::endl;
+                int balance = userdata->ReturnBalance(account_idx);
+                std::cout<<"your balance is only "<<balance<< " dollars! "<<std::endl;
+                return false;
+            }
+            
         }
         else{
             std::cout<<"cannot withdraw " << amount <<" dollars! (negative withdrawals aren't allowed)"<<std::endl;
